@@ -23,7 +23,6 @@ $Languages = @(
     'bg-bg'
     'cs-cz'
     'da-dk'
-    'de-de'
     'el-gr'
     'en-gb'
     'es-es'
