@@ -42,6 +42,8 @@ powershell.exe -w h -c Invoke-OSDCloudPEStartup UpdateModule -Value OSD
 powershell.exe -w h -c Invoke-OSDCloudPEStartup UpdateModule -Value OSDCloud
 powershell.exe -w h -c Invoke-OSDCloudPEStartup Info
 
+powershell.exe -w h -c "$moduleInfo=Get-Module -ListAvailable -Name OSDCloud | Sort-Object Version -Descending | Select-Object -First 1; $workflowPath=Join-Path $moduleInfo.ModuleBase 'workflow'; $companyPath=Join-Path $workflowPath 'company'; $tasksPath=Join-Path $companyPath 'tasks'; New-Item -Path $companyPath -ItemType Directory -Force | Out-Null; New-Item -Path $tasksPath -ItemType Directory -Force | Out-Null; Invoke-WebRequest -Uri '<GIST-RAW-URL-1>' -OutFile (Join-Path $companyPath 'os-amd64.json'); Invoke-WebRequest -Uri '<GIST-RAW-URL-2>' -OutFile (Join-Path $companyPath 'os-arm64.json'); Invoke-WebRequest -Uri '<GIST-RAW-URL-3>' -OutFile (Join-Path $companyPath 'user-amd64.json'); Invoke-WebRequest -Uri '<GIST-RAW-URL-4>' -OutFile (Join-Path $companyPath 'user-arm64.json'); Invoke-WebRequest -Uri '<GIST-RAW-URL-5>' -OutFile (Join-Path $tasksPath 'osdcloud.json')"
+
 # Modulpfad ermitteln
 $moduleInfo = Get-Module -ListAvailable -Name OSDCloud | Sort-Object Version -Descending | Select-Object -First 1
 $modulePath = $moduleInfo.ModuleBase
