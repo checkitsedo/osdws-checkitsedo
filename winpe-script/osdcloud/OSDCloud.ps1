@@ -41,6 +41,7 @@ powershell.exe -w h -c Invoke-OSDCloudPEStartup IPConfig
 powershell.exe -w h -c Invoke-OSDCloudPEStartup UpdateModule -Value OSD
 powershell.exe -w h -c Invoke-OSDCloudPEStartup UpdateModule -Value OSDCloud
 powershell.exe -w h -c Invoke-OSDCloudPEStartup Info
+start /wait PowerShell -NoL -C Start-OSDCloudWorkflow -CLI
 wpeutil Reboot
 pause
 '@
