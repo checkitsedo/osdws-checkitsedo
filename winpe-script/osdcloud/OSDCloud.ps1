@@ -35,14 +35,14 @@ wpeinit
 wpeutil DisableFirewall
 wpeutil UpdateBootInfo
 
-mkdir "X:\Program Files\WindowsPowerShell\Modules\OSDCLoud\25.9.23.1\workflow\company"
-mkdir "X:\Program Files\WindowsPowerShell\Modules\OSDCLoud\25.9.23.1\workflow\company\tasks"
+# mkdir "X:\Program Files\WindowsPowerShell\Modules\OSDCLoud\25.9.23.1\workflow\company"
+# mkdir "X:\Program Files\WindowsPowerShell\Modules\OSDCLoud\25.9.23.1\workflow\company\tasks"
 
-curl.exe -L -o "X:\Program Files\WindowsPowerShell\Modules\OSDCloud\25.9.23.1\workflow\company\os-amd64.json" https://gist.githubusercontent.com/checkitsedo/3195abfe3eeab52ad23843a84e794f33/raw/spx-os-amd64.json
-curl.exe -L -o "X:\Program Files\WindowsPowerShell\Modules\OSDCloud\25.9.23.1\workflow\company\os-arm64.json" https://gist.githubusercontent.com/checkitsedo/5c948fdae5bc4634352438660d9d61d2/raw/spx-os-arm64.json
-curl.exe -L -o "X:\Program Files\WindowsPowerShell\Modules\OSDCloud\25.9.23.1\workflow\company\user-amd64.json" https://gist.githubusercontent.com/checkitsedo/4cfd046b499e2166c5bd8ead0882ddc8/raw/spx-user-amd64.json
-curl.exe -L -o "X:\Program Files\WindowsPowerShell\Modules\OSDCloud\25.9.23.1\workflow\company\user-arm64.json" https://gist.githubusercontent.com/checkitsedo/5e24f80033daca58ff90ebc834fdeafb/raw/spx-user-arm64.json
-curl.exe -L -o "X:\Program Files\WindowsPowerShell\Modules\OSDCloud\25.9.23.1\workflow\company\tasks\osdcloud.json" https://gist.githubusercontent.com/checkitsedo/c7d79a82a3a0bccec894a2102dc8ee8c/raw/spx-osdcloud.json
+# curl.exe -L -o "X:\Program Files\WindowsPowerShell\Modules\OSDCloud\25.9.23.1\workflow\company\os-amd64.json" https://gist.githubusercontent.com/checkitsedo/3195abfe3eeab52ad23843a84e794f33/raw/spx-os-amd64.json
+# curl.exe -L -o "X:\Program Files\WindowsPowerShell\Modules\OSDCloud\25.9.23.1\workflow\company\os-arm64.json" https://gist.githubusercontent.com/checkitsedo/5c948fdae5bc4634352438660d9d61d2/raw/spx-os-arm64.json
+# curl.exe -L -o "X:\Program Files\WindowsPowerShell\Modules\OSDCloud\25.9.23.1\workflow\company\user-amd64.json" https://gist.githubusercontent.com/checkitsedo/4cfd046b499e2166c5bd8ead0882ddc8/raw/spx-user-amd64.json
+# curl.exe -L -o "X:\Program Files\WindowsPowerShell\Modules\OSDCloud\25.9.23.1\workflow\company\user-arm64.json" https://gist.githubusercontent.com/checkitsedo/5e24f80033daca58ff90ebc834fdeafb/raw/spx-user-arm64.json
+# curl.exe -L -o "X:\Program Files\WindowsPowerShell\Modules\OSDCloud\25.9.23.1\workflow\company\tasks\osdcloud.json" https://gist.githubusercontent.com/checkitsedo/c7d79a82a3a0bccec894a2102dc8ee8c/raw/spx-osdcloud.json
 
 powershell.exe -w h -c Invoke-OSDCloudPEStartup OSK
 powershell.exe -w h -c Invoke-OSDCloudPEStartup DeviceHardware
@@ -83,6 +83,7 @@ powershell.exe -w h -c Invoke-OSDCloudPEStartup Info
 # Invoke-WebRequest -Uri $gists["osdcloud.json"]   -OutFile (Join-Path $tasksPath   "osdcloud.json")
 
 # start /wait PowerShell -NoL -C Start-OSDCloudWorkflow -CLI
+start /wait PowerShell -NoL -C Invoke-WebPSScript 'https://gist.githubusercontent.com/checkitsedo/b9e272636a73a1c14aede5c47639ae97/raw/spx_osdcloud_bootstrap.ps1'
 wpeutil Reboot
 pause
 '@
