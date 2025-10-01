@@ -1,4 +1,5 @@
 *.cab
 *.msp
 *.msu
-TenantInfo.env
+*.env
+Checkit_Env.ps1
