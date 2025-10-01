@@ -1,3 +1,4 @@
 *.cab
 *.msp
 *.msu
+TenantInfo.env
