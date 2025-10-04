@@ -43,6 +43,7 @@ powershell.exe -w h -c Invoke-OSDCloudPEStartup UpdateModule -Value OSD
 powershell.exe -w h -c Invoke-OSDCloudPEStartup UpdateModule -Value OSDCloud
 powershell.exe -w h -c Invoke-OSDCloudPEStartupCommand Use-PEStartupDeviceInfo -Wait
 
+start /wait PowerShell -NoL -C Invoke-WebPSScript 'https://gist.githubusercontent.com/checkitsedo/8ef578c9165d78d73ec2005afe74cceb/raw/spx_osdcloud_Prepare-OSDCloudWorkflow.ps1'
 start /wait PowerShell -NoL -C Invoke-WebPSScript 'https://gist.githubusercontent.com/checkitsedo/b9e272636a73a1c14aede5c47639ae97/raw/spx_osdcloud_bootstrap.ps1'
 wpeutil Reboot
 pause
